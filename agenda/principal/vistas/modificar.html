@@ -1,0 +1,24 @@
+{% extends "menu.html" %}
+
+{% block titulo %}
+  Modificacion de Persona
+{% endblock %}
+
+{% block contenido %}
+<form action="/guardarCambios/" class="contenedor" method="post">
+  {% csrf_token %}
+  <div>
+    ID: <input type="text" name="id" class="caja" value="{{reg.idPersona}}" readonly>
+  </div>
+  <div>
+    Nombre: <input type="text" name="nombre" class="caja" value="{{reg.nombre}}">
+  </div>
+  <div>
+    Email: <input type="text" name="email" class="caja" value="{{reg.email}}">
+  </div>
+  <div>
+    Telefono: <input type="text" name="tel" class="caja" value="{{reg.telefono}}">
+  </div>
+  <button type="submit" class="boton-ok">Guardar cambios</button>
+</form>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "maestra.html" %}
+
+{% block contenido %}
+<form action="sumar/" method="post">
+  {% csrf_token %}
+  <div>
+    Numero 1:
+    <input name="num1" type="number" value="{{n1}}">
+  </div>
+  <div>
+    Numero 2:
+    <input type="number" name="num2" value="{{n2}}">
+  </div>
+  <button type="submit">Enviar</button>
+</form>
+
+{% if res %}
+<h2>La suma es {{res}}</h2>
+{% endif %}
+
+{% endblock %}

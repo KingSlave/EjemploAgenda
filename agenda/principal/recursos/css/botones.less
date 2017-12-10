@@ -1,0 +1,47 @@
+
+@colorNormal: rgb(116, 153, 215);
+@colorOk:rgb(41, 175, 42);
+@colorNo: rgb(187, 101, 101);
+
+.boton{
+ background-color: @colorNormal;
+ border:1px solid darken(@colorNormal,20%);
+ border-radius: 8px;
+ margin: 5px;
+ padding: 5px;
+ font-size: 16px;
+ color: white;
+ font-weight: bold;
+ text-align: center;
+ cursor: pointer;
+ outline: none;
+ text-decoration: none;
+}
+
+.boton-ok:extend(.boton){
+  background-color: @colorOk;
+  border-color: darken(@colorOk,20%);
+}
+.boton-no:extend(.boton){
+  background-color: @colorNo;
+  border-color: darken(@colorNo,20%);
+}
+
+.efectoHover(@color){
+  background-color: lighten(@color,20%);
+  box-shadow: 0px 0px 8px darken(@color,30%);
+  transition: 0.5s;
+  color: darken(@color,30%);
+}
+
+.boton-ok:hover{
+  .efectoHover(@colorOk);
+}
+
+.boton-no:hover{
+  .efectoHover(@colorNo);
+}
+
+.boton:hover{
+  .efectoHover(@colorNormal);
+}

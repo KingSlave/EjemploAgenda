@@ -1,0 +1,41 @@
+{% extends "menu.html" %}
+
+{% block titulo %}
+Consulta de personas
+{% endblock %}
+
+{% block contenido %}
+{% if msg %}
+  <h3 class='texto-ok'>{{msg}}</h3>
+{% endif %}
+    <table>
+      <thead>
+          <tr>
+            <th>ID</th>
+            <th>NOMBRE</th>
+            <th>EMAIL</th>
+            <th>TELEFONO</th>
+          </tr>
+      </thead>
+      <tbody>
+        {% for reg in registros %}
+          <tr style="padding:50px;margin:10px;border:1px solid black">
+            <td>{{reg.idPersona}}</td>
+            <td>{{reg.nombre}}</td>
+            <td>{{reg.email}}</td>
+            <td>{{reg.telefono}}</td>
+            <td>
+              <form action="modificar/" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="id" value="{{reg.idPersona}}">
+                <button type="submit">Modificar</button>
+              </form>
+            </td>
+            <td>
+              <a href="feliminar/?id={{reg.idPersona}}" class="boton-no">Eliminar</a>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+{% endblock %}

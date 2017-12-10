@@ -1,0 +1,67 @@
+// out: estilo.css
+@import "menu.less";
+@import "botones.less";
+@import "cajas.less";
+
+html,body{
+  margin:0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.texto-ok{
+padding: 5px;
+background-color: rgb(83, 179, 63);
+color: rgb(24, 48, 18);
+font-size: 24px;
+text-align: center;
+}
+
+.info{
+  display: none;
+  border: 1px solid black;
+  margin: 50px;
+  padding: 20px;
+  background-color: rgb(164, 186, 242);
+  font-size: 16px;
+  font-weight: bold;
+}
+
+label{
+  font-weight: bold;
+}
+
+.contenedor-none{
+  margin: 5%;
+  padding: 2%;
+}
+
+.contenedor:extend(.contenedor-none){
+  border: 1px solid lightgray;
+  border-radius: 4px;
+  box-shadow: 0.5px 0.5px 10px gray;
+}
+table{
+  border-collapse: collapse;
+}
+
+table *{
+  border: 1px solid black;
+  padding: 5px;
+}
+
+table>thead>tr{
+  background-color: darkgray;
+  color:white;
+  font-weight: bold;
+}
+
+table>tbody>tr:nth-child(even){
+  background-color: lightgray;
+}
+
+table>tbody>tr:hover{
+  background-color: darkblue;
+  color:white;
+  cursor: pointer;
+}

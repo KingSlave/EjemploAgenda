@@ -1,0 +1,30 @@
+@colorOpcion: rgb(36, 134, 205);
+@colorOnMoveOpcion: rgb(150, 220, 255);
+
+.menu{
+  display: inline-block;
+  border-bottom: 1px solid gray;
+  border-top: 1px solid gray;
+  width: 98.3%;
+  text-align: center;
+  font-size: 20px;
+  padding: 10px;
+  margin: 50px 0px 50px 0px;
+  background-color: lightgray;
+  a{
+    background-color: @colorOpcion;
+    text-decoration: none;
+    border: 1px solid gray;
+    padding: 10px;
+    color:white;
+  }
+
+  a:hover{
+    background-color: @colorOnMoveOpcion;
+    border: 1px solid black;
+    color:black;
+    transition: 1s;
+  }
+
+
+}

@@ -1,0 +1,14 @@
+{% extends "menu.html" %}
+
+{% block titulo %}
+  Eliminacion de persona
+{% endblock %}
+
+{% block contenido %}
+  <h3>Confirmacion de eliminacion de persona</h3>
+  <form class="contenedor" action="eliminar/" method="post">
+    {% csrf_token %}
+    <input type="text" readonly name="id" value="{{id}}">
+    <button type="submit" class="boton-no">Confirmo eliminacion</button>
+  </form>
+{% endblock %}

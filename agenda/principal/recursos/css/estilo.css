@@ -1,0 +1,139 @@
+.menu {
+  display: inline-block;
+  border-bottom: 1px solid gray;
+  border-top: 1px solid gray;
+  width: 98.3%;
+  text-align: center;
+  font-size: 20px;
+  padding: 10px;
+  margin: 50px 0px 50px 0px;
+  background-color: lightgray;
+}
+.menu a {
+  background-color: #2486cd;
+  text-decoration: none;
+  border: 1px solid gray;
+  padding: 10px;
+  color: white;
+}
+.menu a:hover {
+  background-color: #96dcff;
+  border: 1px solid black;
+  color: black;
+  transition: 1s;
+}
+.boton,
+.boton-ok,
+.boton-no {
+  background-color: #7499d7;
+  border: 1px solid #3363b2;
+  border-radius: 8px;
+  margin: 5px;
+  padding: 5px;
+  font-size: 16px;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  text-decoration: none;
+}
+.boton-ok {
+  background-color: #29af2a;
+  border-color: #165c16;
+}
+.boton-no {
+  background-color: #bb6565;
+  border-color: #813939;
+}
+.boton-ok:hover {
+  background-color: #63db64;
+  box-shadow: 0px 0px 8px #0c330c;
+  transition: 0.5s;
+  color: #0c330c;
+}
+.boton-no:hover {
+  background-color: #daacac;
+  box-shadow: 0px 0px 8px #5e2929;
+  transition: 0.5s;
+  color: #5e2929;
+}
+.boton:hover {
+  background-color: #c3d3ee;
+  box-shadow: 0px 0px 8px #284d8a;
+  transition: 0.5s;
+  color: #284d8a;
+}
+.caja,
+.caja-error {
+  border: 0.5px solid lightgray;
+  background-color: white;
+  box-shadow: 0px 0px 10px #ffffff;
+  margin: 3px;
+  padding: 5px;
+  font-size: 16px;
+  border-radius: 6px;
+}
+.caja:focus {
+  outline: none;
+  box-shadow: 0px 0px 10px skyblue;
+}
+.caja-error {
+  border: 0.5px solid #d44018;
+  box-shadow: 0px 0px 10px #ee8264;
+}
+html,
+body {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+.texto-ok {
+  padding: 5px;
+  background-color: #53b33f;
+  color: #183012;
+  font-size: 24px;
+  text-align: center;
+}
+.info {
+  display: none;
+  border: 1px solid black;
+  margin: 50px;
+  padding: 20px;
+  background-color: #a4baf2;
+  font-size: 16px;
+  font-weight: bold;
+}
+label {
+  font-weight: bold;
+}
+.contenedor-none,
+.contenedor {
+  margin: 5%;
+  padding: 2%;
+}
+.contenedor {
+  border: 1px solid lightgray;
+  border-radius: 4px;
+  box-shadow: 0.5px 0.5px 10px gray;
+}
+table {
+  border-collapse: collapse;
+}
+table * {
+  border: 1px solid black;
+  padding: 5px;
+}
+table > thead > tr {
+  background-color: darkgray;
+  color: white;
+  font-weight: bold;
+}
+table > tbody > tr:nth-child(even) {
+  background-color: lightgray;
+}
+table > tbody > tr:hover {
+  background-color: darkblue;
+  color: white;
+  cursor: pointer;
+}

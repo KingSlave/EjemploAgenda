@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Hola mundo</title>
+    <style media="screen">
+      h1{
+        color:red;
+      }
+
+    </style>
+  </head>
+  <body>
+<!-- <h1>Hola Mundo</h1> -->
+
+{% if nombre%}
+<h2>Bienvenido {{nombre|default:"Anonimo"}}</h2>
+{% else %}
+<h2>Usted no ha iniciado sesion</h2>
+{% endif%}
+<h1>Numero de personas = {{lista|length}}</h1>
+<table>
+  <thead>
+    <tr>
+    <th>ID</th>
+    <th>NOMBRE</th>
+    </tr>
+  </thead>
+<tbody>
+{% for per in lista %}
+<tr>
+  <td>{{per.id}}</td>
+  <td> {{per.nombre}}</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+
+
+  </body>
+</html>

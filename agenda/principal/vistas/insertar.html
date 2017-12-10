@@ -1,0 +1,24 @@
+{% extends "menu.html" %}
+
+{% block titulo %}
+  Nueva Persona
+{% endblock %}
+
+{% block contenido %}
+<form action="/nuevo/" class="contenedor" method="post">
+  {% csrf_token %}
+  <div>
+    ID: <input type="text" name="id" class="caja">
+  </div>
+  <div>
+    Nombre: <input type="text" name="nombre" class="caja">
+  </div>
+  <div>
+    Email: <input type="text" name="email" class="caja">
+  </div>
+  <div>
+    Telefono: <input type="text" name="tel" class="caja">
+  </div>
+  <button type="submit" class="boton-ok">Guardar</button>
+</form>
+{% endblock %}
