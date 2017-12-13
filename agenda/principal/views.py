@@ -1,25 +1,28 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from models import Persona
-from django.views.decorators.cache import never_cache
+from models import Usuario
+
 # Create your views here.
-@never_cache
+def login(request):
+    return render(request,'login.html')
+
 def index(request):
     lista=[Persona(1,"Martha"),
            Persona(2,"Gabriela"),
            Persona(3,"Carlos")]
 
     return render(request,'index.html',{'nombre':'Pepe','lista':lista})
-@never_cache
+
 def saludo(request):
     return HttpResponse("Bienvenido a DJANGO")
-@never_cache
+
 def pagina1(request):
     return render(request,'pagina1.html')
-@never_cache
+
 def pagina2(request):
     return render(request,'pagina2.html')
-@never_cache
+
 def insertar(request):
     if 'id' in request.POST and 'nombre' in request.POST and 'email' in request.POST and 'tel' in request.POST:
         idPersona = request.POST['id']
@@ -32,7 +35,7 @@ def insertar(request):
     else:
         return render(request,'insertar.html')
 
-@never_cache
+
 def sumar(request):
     if 'num1' in request.POST and 'num2' in request.POST:
         n1 = request.POST['num1']
@@ -42,21 +45,17 @@ def sumar(request):
     else:
         return render(request,'fsumar.html')
 
-WAMP - Windows Apache MySQL Php
 
-
-
-
-@never_cache
 def consulta(request):
+    if request.session.get('usuario','_anonimo')=='_anonimo':
+        return login(request)
     registros = Persona.objects.all()
     return render(request,'consulta.html',{'registros':registros})
-@never_cache
+
 def modificar(request):
     registro = Persona.objects.get(idPersona=request.POST['id'])
     return render(request,'modificar.html',{'reg':registro})
 
-@never_cache
 def guardarCambios(request):
     p = Persona(idPersona = request.POST['id'])
     p.nombre = request.POST['nombre']
@@ -75,3 +74,16 @@ def eliminar(request):
 def feliminar(request):
     id = request.GET['id']
     return render(request,'eliminar.html',{'id':id})
+
+def autenticar(request):
+    try:
+        u = Usuario.objects.get(usuario=request.POST['usuario'],password=request.POST['pass'])
+    except Usuario.DoesNotExist as e:
+        return render(request,'login.html',{'msg':'Datos incorrectos'})
+    else:
+        request.session['usuario'] = u.usuario
+        return consulta(request)
+
+def cerrarSesion(request):
+    del request.session['usuario']
+    return login(request)

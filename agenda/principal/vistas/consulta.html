@@ -25,7 +25,7 @@ Consulta de personas
             <td>{{reg.email}}</td>
             <td>{{reg.telefono}}</td>
             <td>
-              <form action="modificar/" method="post">
+              <form action="/modificar/" method="post">
                 {% csrf_token %}
                 <input type="hidden" name="id" value="{{reg.idPersona}}">
                 <button type="submit">Modificar</button>

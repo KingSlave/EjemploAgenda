@@ -7,9 +7,15 @@
     <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
   </head>
   <body>
+    {% if request.session.usuario %}
+    <h1>Usuario logeado = {{request.session.usuario}}</h1>
+    {% else %}
+    <h1>Ningun usuario a iniciado sesion</h1>
+    {% endif %}
     <nav class="menu">
-      <a href="nuevo/" >Registrar</a>
-      <a href="consultar/" >Consultar</a>
+      <a href="/nuevo/" >Registrar</a>
+      <a href="/consultar/" >Consultar</a>
+      <a href="/cerrarSesion/">Cerrar Sesion</a>
     </nav>
 {% block contenido %}
 

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Inicio de sesion</title>
+    {% load static from staticfiles %}
+    <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
+  </head>
+  <body>
+    {% if msg %}
+    <h1>{{msg}}</h1>
+    {% endif %}
+    <form class="contenedor" action="/autenticar/" method="post">
+      {% csrf_token %}
+      <div>
+        <label for="">Usuario:</label>
+        <input type="text" name="usuario">
+      </div>
+      <div>
+        <label for="">Password:</label>
+        <input type="password" name="pass" autocomplete="off">
+      </div>
+      <button type="submit">Iniciar sesion</button>
+    </form>
+  </body>
+</html>

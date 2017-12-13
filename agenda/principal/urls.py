@@ -3,6 +3,9 @@ from views import *
 
 
 urlpatterns = [
+url(r'cerrarSesion/$',cerrarSesion),
+url(r'autenticar/$',autenticar),
+url(r'login/$',login),
 url(r'feliminar/$',feliminar),
 url(r'eliminar/$',eliminar),
 url(r'guardarCambios/$',guardarCambios),
