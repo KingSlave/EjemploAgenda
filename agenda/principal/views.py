@@ -76,13 +76,16 @@ def feliminar(request):
     return render(request,'eliminar.html',{'id':id})
 
 def autenticar(request):
-    try:
-        u = Usuario.objects.get(usuario=request.POST['usuario'],password=request.POST['pass'])
-    except Usuario.DoesNotExist as e:
-        return render(request,'login.html',{'msg':'Datos incorrectos'})
+    if request.POST:
+        try:
+            u = Usuario.objects.get(usuario=request.POST['usuario'],password=request.POST['pass'])
+        except Usuario.DoesNotExist as e:
+            return render(request,'login.html',{'msg':'Datos incorrectos'})
+        else:
+            request.session['usuario'] = u.usuario
+            return consulta(request)
     else:
-        request.session['usuario'] = u.usuario
-        return consulta(request)
+        return login(request)
 
 def cerrarSesion(request):
     del request.session['usuario']
